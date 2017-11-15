@@ -9,6 +9,8 @@ public class Main {
 
     public static void main(String[] arg) {
 	    // write your code here
+        alarmClock.setTime();
+
         try {
             // Initializer
             URL_handler.getURLfromFile();
