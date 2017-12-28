@@ -1,7 +1,11 @@
 package com.company;
 
+import java.awt.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
+import java.util.List;
 
 public class URL_handler {
     private static Object[] listURL;
@@ -73,5 +77,27 @@ public class URL_handler {
             System.out.print("\n");
         }
         System.out.print("\n");
+    }
+
+    public static void runGoodMorning(){
+        String url;
+        try {
+            // Initializer
+            getURLfromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Error check
+        //URL_handler.printURLs();
+        url = getRandURL();
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
